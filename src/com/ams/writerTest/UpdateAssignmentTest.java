@@ -1,19 +1,17 @@
-package com.ams.adminTest;
+package com.ams.writerTest;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import com.ams.writer.UpdateAssignment;
 
-import com.ams.admin.CreateAssignment;
-
-public class CreateAssignmentTest {
+public class UpdateAssignmentTest {
 
 	WebDriver driver;
-	CreateAssignment objectCreateAssignment;
+	UpdateAssignment objectUpdateAssignment;
 	String baseUrl = "http://ams.onestopsoul.com/login";
 
 	@Before
@@ -26,10 +24,10 @@ public class CreateAssignmentTest {
 	}
 
 	@Test
-	public void test_CreateAssignment() throws IOException, InterruptedException {
+	public void test_UPdateAssignment() throws IOException, InterruptedException {
 
-		objectCreateAssignment = new CreateAssignment(driver);
-		objectCreateAssignment.amsAddAssignment("admin@gmail.com", "qwerty12", "React JS", "50",
-				"50", "50", "H1", "Node JS");
+		objectUpdateAssignment = new UpdateAssignment(driver);
+		objectUpdateAssignment.amsUpdateAssignment("writer@gmail.com", "qwerty12","React JS");
 	}
+
 }

@@ -13,8 +13,8 @@ public class CreateAssignment {
 	By signInButton = By.xpath("//BUTTON[@type='submit'][text()='Sign me in']");
 	By addAssignmentButton = By.xpath("//BUTTON[@type='button'][text()='Add Assignment']");
 	By assignmentTitle = By.xpath("//INPUT[@id='input_21']");
-	By calenderInput = By.xpath("//DIV[@class='md-dialog-container ng-scope']");
-	By dateSelector = By.xpath("//A[@id='date-2018-05-04']");
+	By calenderInput = By.xpath("//*[@id=\"deadline\"]");
+	By dateSelector = By.xpath("//*[@id=\"date-2018-05-05\"]");
 	By timeSelector = By.xpath("//BUTTON[@class='dtp-btn-ok md-button md-button md-ink-ripple']");
 	By numberOfWords = By.xpath("//INPUT[@id='input_22']");
 	By writerPayout = By.xpath("//INPUT[@id='input_23']");
@@ -37,57 +37,63 @@ public class CreateAssignment {
 
 	public void clickSignInButton() throws InterruptedException {
 		driver.findElement(signInButton).click();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 	}
 
 	public void clickAddAssignmentButton() throws InterruptedException {
 		driver.findElement(addAssignmentButton).click();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 	}
 
 	public void setAssignmentTitle(String strAssignmentTitle) {
 		driver.findElement(assignmentTitle).sendKeys(strAssignmentTitle);
 	}
 
-	public void clickCalenderInput() throws InterruptedException {
+	public void setCalenderInput() throws InterruptedException {
 		driver.findElement(calenderInput).click();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 	}
 
 	public void clickDate() throws InterruptedException {
 		driver.findElement(dateSelector).click();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 	}
 
 	public void clickTime() throws InterruptedException {
 		driver.findElement(timeSelector).click();
+		Thread.sleep(2000);
 		driver.findElement(timeSelector).click();
-		Thread.sleep(10000);
+		Thread.sleep(2000);
 	}
 
-	public void setNumberOfWords(String strNumberOfwords) {
+	public void setNumberOfWords(String strNumberOfwords) throws InterruptedException {
 		driver.findElement(numberOfWords).sendKeys(strNumberOfwords);
+		Thread.sleep(1000);
 	}
 
-	public void setWrtiterPayOut(String strWriterPayOut) {
-		driver.findElement(numberOfWords).sendKeys(strWriterPayOut);
+	public void setWrtiterPayOut(String strWriterPayOut) throws InterruptedException {
+		driver.findElement(writerPayout).sendKeys(strWriterPayOut);
+		Thread.sleep(1000);
 	}
 
-	public void setProofReaderPayOut(String strProofReaderPayOut) {
+	public void setProofReaderPayOut(String strProofReaderPayOut) throws InterruptedException {
 		driver.findElement(proofRederPayout).sendKeys(strProofReaderPayOut);
+		Thread.sleep(1000);
 	}
 
-	public void setClientId(String strClientId) {
+	public void setClientId(String strClientId) throws InterruptedException {
 		driver.findElement(clientId).sendKeys(strClientId);
+		Thread.sleep(1000);
 	}
 
-	public void setDetails(String strDetails) {
+	public void setDetails(String strDetails) throws InterruptedException {
 		driver.findElement(details).sendKeys(strDetails);
+		Thread.sleep(1000);
 	}
 
 	public void clickSubmitButton() throws InterruptedException {
 		driver.findElement(submitButton).click();
-		Thread.sleep(10000);
+		Thread.sleep(5000);
 	}
 
 	public void amsAddAssignment(String strEmailAddress, String strPassword, String strAssignmentTitle,
@@ -109,8 +115,8 @@ public class CreateAssignment {
 		this.setAssignmentTitle(strAssignmentTitle);
 		System.out.println("Enetered Assignment Title");
 
-		this.clickCalenderInput();
-		System.out.println("Calender Opened");
+		this.setCalenderInput();
+		System.out.println("Clicked on Calender");
 		
 		this.clickDate();
 		System.out.println("Date Clicked");

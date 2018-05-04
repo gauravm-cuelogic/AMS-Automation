@@ -1,19 +1,16 @@
-package com.ams.adminTest;
+package com.ams.proofReaderTest;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import com.ams.proofReader.ProofReaderAssignment;
 
-import com.ams.admin.CreateAssignment;
-
-public class CreateAssignmentTest {
-
+public class ProofReaderAssignmentTest {
 	WebDriver driver;
-	CreateAssignment objectCreateAssignment;
+	ProofReaderAssignment objectProofReaderAssignment;
 	String baseUrl = "http://ams.onestopsoul.com/login";
 
 	@Before
@@ -26,10 +23,9 @@ public class CreateAssignmentTest {
 	}
 
 	@Test
-	public void test_CreateAssignment() throws IOException, InterruptedException {
+	public void test_ProofReaderAssignment() throws IOException, InterruptedException {
 
-		objectCreateAssignment = new CreateAssignment(driver);
-		objectCreateAssignment.amsAddAssignment("admin@gmail.com", "qwerty12", "React JS", "50",
-				"50", "50", "H1", "Node JS");
+		objectProofReaderAssignment = new ProofReaderAssignment(driver);
+		objectProofReaderAssignment.amsProofReaderAssignment("proofreader@gmail.com", "qwerty12", "React JS");
 	}
 }
