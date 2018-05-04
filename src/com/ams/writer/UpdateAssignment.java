@@ -14,8 +14,8 @@ public class UpdateAssignment {
 	By actionButton = By.xpath("//MD-ICON[@class='material-icons ng-scope'][text()='menu']");
 	By viewButton = By.xpath("//MD-ICON[@class='material-icons ng-scope'][text()='content_copy']");
 	By acceptButton = By.xpath("//BUTTON[@class='md-primary md-raised md-button ng-scope md-ink-ripple']");
-	By chooseFileButton = By.xpath("//INPUT[@id='input_162']");
-	By submitButton = By.xpath("//BUTTON[@class='md-primary md-raised md-button ng-scope md-ink-ripple']");
+	By chooseFileButton = By.xpath("//*[contains(@id,'input')]"); //*[@id="input_55"]
+	By submitButton = By.xpath("//*[@id=\"content\"]/div[2]/div[1]/md-card[1]/md-card-content[1]/div[1]/form[1]/div[2]/button[2]");
 
 	public UpdateAssignment(WebDriver driver) {
 		this.driver = driver;
@@ -50,11 +50,15 @@ public class UpdateAssignment {
 		driver.findElement(acceptButton).click();
 	}
 
-	public void clickChooseFileButton() {
-		driver.findElement(chooseFileButton).click();
+	public void setChooseFileButton(String filePath) {
+		driver.findElement(chooseFileButton).sendKeys(filePath);
+	}
+	
+	public void clickSubmitButton() {
+		driver.findElement(submitButton).click();
 	}
 
-	public void amsUpdateAssignment(String strEmailAddress, String strPassword, String strSearchInput) throws InterruptedException {
+	public void amsUpdateAssignment(String strEmailAddress, String strPassword, String strSearchInput, String filePath) throws InterruptedException {
 
 		this.setEmailAddress(strEmailAddress);
 		System.out.println("Entered Email Address");
@@ -93,7 +97,12 @@ public class UpdateAssignment {
 		System.out.println("Clicked view button");
 		Thread.sleep(1000);
 
-		this.clickChooseFileButton();
+		this.setChooseFileButton(filePath);
 		System.out.println("Browse pop up opened");
+		Thread.sleep(1000);
+		
+		this.clickSubmitButton();
+		System.out.println("Clicked on submit button");
+		Thread.sleep(1000);
 	}
 }

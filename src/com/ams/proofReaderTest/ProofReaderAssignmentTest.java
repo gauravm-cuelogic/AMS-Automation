@@ -12,6 +12,7 @@ public class ProofReaderAssignmentTest {
 	WebDriver driver;
 	ProofReaderAssignment objectProofReaderAssignment;
 	String baseUrl = "http://ams.onestopsoul.com/login";
+	String filePath = "E:\\Gaurav_Workspace\\Personal\\Prajakta Bulbule Resume - Admin.docx";
 
 	@Before
 	public void setup() {
@@ -26,6 +27,6 @@ public class ProofReaderAssignmentTest {
 	public void test_ProofReaderAssignment() throws IOException, InterruptedException {
 
 		objectProofReaderAssignment = new ProofReaderAssignment(driver);
-		objectProofReaderAssignment.amsProofReaderAssignment("proofreader@gmail.com", "qwerty12", "React JS");
+		objectProofReaderAssignment.amsProofReaderAssignment("proofreader@gmail.com", "qwerty12", "PYTHON Framework", filePath);
 	}
 }

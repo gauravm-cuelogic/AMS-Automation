@@ -13,6 +13,7 @@ public class UpdateAssignmentTest {
 	WebDriver driver;
 	UpdateAssignment objectUpdateAssignment;
 	String baseUrl = "http://ams.onestopsoul.com/login";
+	String filePath = "E:\\Gaurav_Workspace\\Personal\\Prajakta Bulbule Resume - Admin.docx";
 
 	@Before
 	public void setup() {
@@ -27,7 +28,7 @@ public class UpdateAssignmentTest {
 	public void test_UPdateAssignment() throws IOException, InterruptedException {
 
 		objectUpdateAssignment = new UpdateAssignment(driver);
-		objectUpdateAssignment.amsUpdateAssignment("writer@gmail.com", "qwerty12","React JS");
+		objectUpdateAssignment.amsUpdateAssignment("writer@gmail.com", "qwerty12","PYTHON Framework", filePath);
 	}
 
 }

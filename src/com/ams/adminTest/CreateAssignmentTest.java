@@ -29,7 +29,7 @@ public class CreateAssignmentTest {
 	public void test_CreateAssignment() throws IOException, InterruptedException {
 
 		objectCreateAssignment = new CreateAssignment(driver);
-		objectCreateAssignment.amsAddAssignment("admin@gmail.com", "qwerty12", "React JS", "50",
-				"50", "50", "H1", "Node JS");
+		objectCreateAssignment.amsAddAssignment("admin@gmail.com", "qwerty12", "PYTHON Framework", "50",
+				"50", "50", "H1", "PYTHON Framework");
 	}
 }
