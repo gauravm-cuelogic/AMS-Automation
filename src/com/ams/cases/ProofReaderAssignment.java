@@ -1,23 +1,22 @@
-package com.ams.writer;
+package com.ams.cases;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class UpdateAssignment {
+public class ProofReaderAssignment {
 
 	WebDriver driver;
 	By emailAddress = By.xpath("//INPUT[@type='email']");
 	By password = By.xpath("//INPUT[@type='password']");
 	By signInButton = By.xpath("//BUTTON[@type='submit'][text()='Sign me in']");
 	By searchInput = By.xpath("//*[contains(@id,'input')]");
-	//By searchInput = By.xpath("//*[@id=\"input_11\"]");
 	By actionButton = By.xpath("//MD-ICON[@class='material-icons ng-scope'][text()='menu']");
 	By viewButton = By.xpath("//MD-ICON[@class='material-icons ng-scope'][text()='content_copy']");
 	By acceptButton = By.xpath("//BUTTON[@class='md-primary md-raised md-button ng-scope md-ink-ripple']");
-	By chooseFileButton = By.xpath("//*[contains(@id,'input')]"); //*[@id="input_55"]
+	By chooseFileButton = By.xpath("//*[contains(@id,'input')]");
 	By submitButton = By.xpath("//*[@id=\"content\"]/div[2]/div[1]/md-card[1]/md-card-content[1]/div[1]/form[1]/div[2]/button[2]");
-
-	public UpdateAssignment(WebDriver driver) {
+	
+	public ProofReaderAssignment(WebDriver driver) {
 		this.driver = driver;
 	}
 
@@ -58,7 +57,7 @@ public class UpdateAssignment {
 		driver.findElement(submitButton).click();
 	}
 
-	public void amsUpdateAssignment(String strEmailAddress, String strPassword, String strSearchInput, String filePath) throws InterruptedException {
+	public void amsProofReaderAssignment(String strEmailAddress, String strPassword, String strSearchInput, String filePath) throws InterruptedException {
 
 		this.setEmailAddress(strEmailAddress);
 		System.out.println("Entered Email Address");

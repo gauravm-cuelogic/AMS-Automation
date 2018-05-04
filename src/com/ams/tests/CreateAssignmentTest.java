@@ -1,18 +1,19 @@
-package com.ams.adminTest;
+package com.ams.tests;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import com.ams.admin.CreateAssignment;
+import com.ams.cases.CreateAssignment;
 
 public class CreateAssignmentTest {
 
-	WebDriver driver;
+	static WebDriver driver;
 	CreateAssignment objectCreateAssignment;
 	String baseUrl = "http://ams.onestopsoul.com/login";
 
@@ -29,7 +30,12 @@ public class CreateAssignmentTest {
 	public void test_CreateAssignment() throws IOException, InterruptedException {
 
 		objectCreateAssignment = new CreateAssignment(driver);
-		objectCreateAssignment.amsAddAssignment("admin@gmail.com", "qwerty12", "PYTHON Framework", "50",
-				"50", "50", "H1", "PYTHON Framework");
+		objectCreateAssignment.amsAddAssignment("admin@gmail.com", "qwerty12", "ROR Framework", "50",
+				"50", "50", "H1", "ROR Framework");
+	}
+	
+	@AfterClass
+	public static void quit() {
+		driver.close();
 	}
 }

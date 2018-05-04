@@ -1,10 +1,11 @@
-package com.ams.admin;
+package com.ams.cases;
 
 import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import junit.framework.Assert;
 
+@SuppressWarnings("deprecation")
 public class CreateAssignment {
 
 	WebDriver driver;
@@ -22,6 +23,8 @@ public class CreateAssignment {
 	By clientId = By.xpath("//INPUT[@id='input_25']");
 	By details = By.xpath("//TEXTAREA[@id='input_26']");
 	By submitButton = By.xpath("//BUTTON[@type='submit']");
+	By getAssignmentTitle = By.xpath("//DIV[@wrap-data='item.title']");
+	By searchInput = By.xpath("//*[contains(@id,'input')]");
 
 	public CreateAssignment(WebDriver driver) {
 		this.driver = driver;
@@ -95,6 +98,13 @@ public class CreateAssignment {
 		driver.findElement(submitButton).click();
 		Thread.sleep(5000);
 	}
+	
+	public void getAssignemtTitle(String strAssignmentTitle) throws InterruptedException {
+		driver.findElement(searchInput).sendKeys(strAssignmentTitle);
+		Thread.sleep(1000);
+		String assignementName = driver.findElement(getAssignmentTitle).getText();
+		Assert.assertEquals("ROR Framework", assignementName);
+	}
 
 	public void amsAddAssignment(String strEmailAddress, String strPassword, String strAssignmentTitle,
 			String strNumberOfwords, String strWriterPayOut, String strProofReaderPayOut, String strClientId,
@@ -141,5 +151,8 @@ public class CreateAssignment {
 		
 		this.clickSubmitButton();
 		System.out.println("Clicked on submit button");
+		
+		this.getAssignemtTitle(strAssignmentTitle);
+		System.out.println("Assignement created successfully");
 	}
 }
