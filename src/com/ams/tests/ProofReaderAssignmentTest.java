@@ -30,7 +30,7 @@ public class ProofReaderAssignmentTest {
 	public void test_ProofReaderAssignment() throws IOException, InterruptedException {
 
 		objectProofReaderAssignment = new ProofReaderAssignment(driver);
-		objectProofReaderAssignment.amsProofReaderAssignment("proofreader@gmail.com", "qwerty12", "ROR Framework", filePath);
+		objectProofReaderAssignment.amsProofReaderAssignment("proofreader@gmail.com", "qwerty12", "Maven Framework", filePath);
 	}
 	
 	@AfterClass

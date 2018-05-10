@@ -28,10 +28,10 @@ public class UpdateAssignmentTest {
 	}
 
 	@Test
-	public void test_UPdateAssignment() throws IOException, InterruptedException {
+	public void test_UPdateAssignment() throws IOException, InterruptedException {  
 
 		objectUpdateAssignment = new UpdateAssignment(driver);
-		objectUpdateAssignment.amsUpdateAssignment("writer@gmail.com", "qwerty12", "ROR Framework", filePath);
+		objectUpdateAssignment.amsUpdateAssignment("writer@gmail.com", "qwerty12", "Maven Framework", filePath);
 	}
 
 	@AfterClass

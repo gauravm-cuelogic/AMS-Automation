@@ -15,7 +15,7 @@ public class CreateAssignment {
 	By addAssignmentButton = By.xpath("//BUTTON[@type='button'][text()='Add Assignment']");
 	By assignmentTitle = By.xpath("//INPUT[@id='input_21']");
 	By calenderInput = By.xpath("//*[@id=\"deadline\"]");
-	By dateSelector = By.xpath("//*[@id=\"date-2018-05-05\"]");
+	By dateSelector = By.xpath("//*[@id=\"date-2018-05-15\"]");
 	By timeSelector = By.xpath("//BUTTON[@class='dtp-btn-ok md-button md-button md-ink-ripple']");
 	By numberOfWords = By.xpath("//INPUT[@id='input_22']");
 	By writerPayout = By.xpath("//INPUT[@id='input_23']");
@@ -103,7 +103,7 @@ public class CreateAssignment {
 		driver.findElement(searchInput).sendKeys(strAssignmentTitle);
 		Thread.sleep(1000);
 		String assignementName = driver.findElement(getAssignmentTitle).getText();
-		Assert.assertEquals("ROR Framework", assignementName);
+		Assert.assertEquals("Maven Framework", assignementName);
 	}
 
 	public void amsAddAssignment(String strEmailAddress, String strPassword, String strAssignmentTitle,
