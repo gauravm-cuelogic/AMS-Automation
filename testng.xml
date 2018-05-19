@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com.ams.tests.CreateAssignmentTest"/>
+      <class name="com.ams.tests.UpdateAssignmentTest"/>
+      <class name="com.ams.tests.ProofReaderAssignmentTest"/>
+      <class name="com.ams.tests.PRRejectAssignmentTest"/>
+      <class name="com.ams.tests.WRAssignmentExpiryTest"/>
+      <class name="com.ams.tests.PRAssignmentExpiryTest"/>
+      <class name="com.ams.tests.WRFinancialDashboardTest"/>
+      <class name="com.ams.tests.PRFinancialDashboardTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

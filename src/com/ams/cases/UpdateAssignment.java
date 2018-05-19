@@ -71,7 +71,7 @@ public class UpdateAssignment {
 		
 		this.clickSearchInout(strSearchInput);
 		System.out.println("Searched with input");
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 
 		this.clickActionButton();
 		System.out.println("Clicked action button");
@@ -87,11 +87,11 @@ public class UpdateAssignment {
 
 		this.clickSearchInout(strSearchInput);
 		System.out.println("Searched with input");
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 
 		this.clickActionButton();
 		System.out.println("Clicked action button");
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 
 		this.clickViewButton();
 		System.out.println("Clicked view button");

@@ -3,7 +3,9 @@ package com.ams.cases;
 import java.io.IOException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import junit.framework.Assert;
 
+@SuppressWarnings("deprecation")
 public class PRFinancialDashboard {
 
 	WebDriver driver;
@@ -51,16 +53,6 @@ public class PRFinancialDashboard {
 		
 		return intAvailableAmountBefore;
 	}
-	
-	public int getFinalAmountInteger(String intEnterAmount) {
-		
-		int availableAmountBefore = getAvailableAmountBefore();
-		int intEnteredAmount = Integer.parseInt(intEnterAmount);
-		System.out.println("Entered Integer Value "+intEnteredAmount);
-		int finalAvailableAmount = (availableAmountBefore - intEnteredAmount);
-		System.out.println("Final Available Amount: " + finalAvailableAmount);
-		return finalAvailableAmount;
-	}
 
 	public void setAmount(String entAmount) {
 		driver.findElement(enterAmount).sendKeys(entAmount);
@@ -68,11 +60,11 @@ public class PRFinancialDashboard {
 
 	public void clkSubmitButton() throws InterruptedException {
 		driver.findElement(SubmitButton).click();
-		driver.navigate().refresh();
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 	}
 	
 	public int getAvailableAmountAfter() {
+		
 		String availableAmountAfter = driver
 				.findElement(AvailableAmount).getText();
 		System.out.println("After Available Amount is: " + availableAmountAfter);
@@ -83,6 +75,21 @@ public class PRFinancialDashboard {
 		int intAvailableAmountAfter = Integer.parseInt(splitedAvailableAmountAfter[1]);
 		System.out.println("After Integer Value"+intAvailableAmountAfter);
 		return intAvailableAmountAfter;
+	}
+	
+	public void availableAmountVerification(String intEnterAmount) {
+		
+		int availableAmountBefore = getAvailableAmountBefore();
+		int intEnteredAmount = Integer.parseInt(intEnterAmount);
+		System.out.println("Entered Integer Value "+intEnteredAmount);
+		
+		int finalAvailableAmount = (availableAmountBefore - intEnteredAmount+intEnteredAmount);
+		System.out.println("Final Available Amount: " + finalAvailableAmount);
+		
+		int intAvailableAmountAfter = getAvailableAmountAfter();
+		
+		Assert.assertEquals(finalAvailableAmount, intAvailableAmountAfter);
+		System.out.println("SUCCESS!!!!");
 	}
 
 	public void financialDashboard(String strEmailAddress, String strPassword, String intEnterAmount) throws IOException, InterruptedException {
@@ -101,9 +108,6 @@ public class PRFinancialDashboard {
 		
 		this.getAvailableAmountBefore();
 		System.out.println("Get the available amount before");
-		
-		this.getFinalAmountInteger(intEnterAmount);
-		System.out.println("Got the final integer value");
 
 		this.setAmount(intEnterAmount);
 		System.out.println("Amount Entered");
@@ -113,6 +117,9 @@ public class PRFinancialDashboard {
 		
 		this.getAvailableAmountAfter();
 		System.out.println("Get the available amount after");
+		
+		this.availableAmountVerification(intEnterAmount);
+		System.out.println("Assertion Complete");
 
 	}
 }
